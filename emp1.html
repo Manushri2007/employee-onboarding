@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Employee Onboarding — Modern (Purple)</title>
+  <link rel="stylesheet" href="emp2.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo">EO</div>
+        <div class="brand-text">
+          <h1>Employee Onboarding</h1>
+          <small>Clean • Fast • Professional</small>
+        </div>
+      </div>
+      <nav>
+        <button class="btn ghost" onclick="showSection('home')">Home</button>
+        <button class="btn" onclick="startAdd()">Add Employee</button>
+        <button class="btn" onclick="renderGrid()">Employees</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="home" class="section">
+      <div class="hero">
+        <div class="hero-left">
+          <h2>Welcome to the Onboarding Portal</h2>
+          <p>Quickly add employees, view profiles, edit records and manage onboarding — all stored locally for demo.</p>
+          <div class="hero-actions">
+            <button class="btn" onclick="startAdd()">Add Employee</button>
+            <button class="btn ghost" onclick="renderGrid()">View Employees</button>
+          </div>
+        </div>
+        <div class="hero-illus">👥</div>
+      </div>
+    </section>
+
+    <!-- ADD / FORMS SECTION -->
+    <section id="formSection" class="section" style="display:none;">
+      <div class="card">
+        <div class="stepper">
+          <div id="step1" class="step active">1<br><small>Personal</small></div>
+          <div id="step2" class="step">2<br><small>Official</small></div>
+          <div id="step3" class="step">3<br><small>Done</small></div>
+        </div>
+
+        <div id="formContainer">
+          <!-- PERSONAL FORM -->
+          <form id="personalForm" class="form-grid">
+            <div class="col">
+              <label>Full Name</label>
+              <input id="p_fullName" type="text" placeholder="John Doe" required>
+
+              <label>Date of Birth</label>
+              <input id="p_dob" type="date" required>
+
+              <label>Gender</label>
+              <select id="p_gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label>Phone</label>
+              <input id="p_phone" type="tel" placeholder="9876543210" required>
+
+              <label>Email</label>
+              <input id="p_email" type="email" placeholder="john@example.com" required>
+
+              <label>Address</label>
+              <textarea id="p_address" rows="3" placeholder="Street, City, State" required></textarea>
+            </div>
+
+            <div class="col-full avatar-col">
+              <label>Profile Photo (optional)</label>
+              <div class="avatar-row">
+                <img id="avatarPreview" src="" alt="avatar" class="avatar-preview" style="display:none;">
+                <div class="avatar-controls">
+                  <input id="p_avatar" type="file" accept="image/*">
+                  <small>Max 300KB recommended</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions col-full">
+              <button type="button" class="btn" onclick="toOfficial()">Next → Official</button>
+              <button type="button" class="btn ghost" onclick="cancelAdd()">Cancel</button>
+            </div>
+          </form>
+
+          <!-- OFFICIAL FORM -->
+          <form id="officialForm" class="form-grid" style="display:none;">
+            <div class="col">
+              <label>Employee ID</label>
+              <input id="o_empId" type="text" placeholder="EMP001" required>
+
+              <label>Department</label>
+              <select id="o_department" required>
+                <option value="">Select Department</option>
+                <option>IT</option><option>HR</option><option>Finance</option><option>Marketing</option><option>Operations</option>
+              </select>
+
+              <label>Designation</label>
+              <select id="o_designation" required>
+                <option value="">Select Designation</option>
+                <option>Software Developer</option><option>HR Manager</option><option>Accountant</option><option>Designer</option><option>Team Lead</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label>Joining Date</label>
+              <input id="o_joinDate" type="date" required>
+
+              <label>Work Location</label>
+              <select id="o_location" required>
+                <option value="">Choose Location</option>
+                <option>Chennai</option><option>Bangalore</option><option>Mumbai</option><option>Work From Home</option>
+              </select>
+
+              <label>Salary (₹)</label>
+              <input id="o_salary" type="number" min="0" placeholder="30000">
+            </div>
+
+            <div class="form-actions col-full">
+              <button type="button" class="btn" onclick="saveEmployee()">Save Employee</button>
+              <button type="button" class="btn ghost" onclick="toPersonal()">Back</button>
+            </div>
+          </form>
+
+          <!-- DONE / PREVIEW (after save) -->
+          <div id="doneBox" class="done-box" style="display:none;">
+            <h3>Saved!</h3>
+            <p id="doneMsg">Employee saved successfully.</p>
+            <div class="done-actions">
+              <button class="btn" onclick="renderGrid()">View All Employees</button>
+              <button class="btn ghost" onclick="startAdd()">Add Another</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID / PROFILES -->
+    <section id="gridSection" class="section" style="display:none;">
+      <div class="toolbar">
+        <input id="searchInput" placeholder="Search by name or ID..." oninput="renderGrid()" />
+        <div>
+          <button class="btn" onclick="startAdd()">+ Add Employee</button>
+          <button class="btn ghost" onclick="clearAll()">Clear All</button>
+        </div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+
+      <!-- detailed profile panel -->
+      <div id="detailPanel" class="detail-panel" style="display:none;">
+        <button class="close" onclick="closeDetail()">✕</button>
+        <div class="detail-card" id="detailCard"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- toast -->
+  <div id="toast" class="toast" style="display:none;"></div>
+
+  <script src="emp3.js"></script>
+</body>
+</html>

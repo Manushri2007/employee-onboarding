@@ -1,0 +1,108 @@
+/* Basic reset & fonts */
+/* Purple Gradient Theme - emp2.css */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,#f6f3fb,#efe9fb);
+  color:#222;
+}
+
+/* Topbar (purple gradient) */
+.topbar{
+  background: linear-gradient(90deg,#6a3fb5,#9b59ff);
+  color:white;
+  padding:14px 18px;
+  box-shadow:0 6px 22px rgba(66,20,90,0.16);
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1100px;
+  margin:0 auto;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{
+  width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;
+  font-size:18px;
+}
+.brand-text h1{margin:0;font-size:18px}
+.brand-text small{opacity:0.95;font-size:12px;display:block;margin-top:2px;color:rgba(255,255,255,0.95)}
+nav .btn{margin-left:8px}
+
+/* container */
+.container{max-width:1100px;margin:30px auto;padding:0 18px}
+
+/* hero */
+.hero{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#fff,#fbf7ff);padding:36px;border-radius:12px;box-shadow:0 8px 30px rgba(70,30,90,0.04)}
+.hero-left{max-width:72%}
+.hero h2{margin:0 0 8px;color:#3a0f66}
+.hero p{margin:0 0 14px;color:#5b4a6f}
+.hero-actions{display:flex;gap:12px}
+.hero-illus{font-size:64px;opacity:0.95}
+
+/* section and card */
+.section{margin-bottom:30px}
+.card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(70,30,90,0.05)}
+.stepper{display:flex;gap:10px;margin-bottom:14px;justify-content:center}
+.step{flex:1;padding:8px;border-radius:10px;background:#f6f1fb;color:#6b4a84;border:1px solid #efe6fb;text-align:center}
+.step.active{background:linear-gradient(90deg,#6a3fb5,#9b59ff);color:white;border-color:transparent;box-shadow:0 8px 22px rgba(90,40,120,0.12)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.col-full{grid-column:1/-1}
+label{display:block;font-weight:600;margin-bottom:6px;color:#3a0f66}
+
+/* inputs */
+input[type="text"],input[type="email"],input[type="tel"],input[type="date"],input[type="number"],select,textarea{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e7dff6;background:#fffafa;
+  outline:none;font-size:14px;color:#2b1650;
+}
+textarea{resize:vertical;min-height:60px}
+input:focus,select:focus,textarea:focus{box-shadow:0 10px 30px rgba(99,56,137,0.08);border-color:#cbb4f8}
+
+/* avatar */
+.avatar-col{display:flex;flex-direction:column}
+.avatar-row{display:flex;gap:12px;align-items:center}
+.avatar-preview{width:86px;height:86px;border-radius:12px;object-fit:cover;border:2px solid #efe0ff;background:#fff}
+.avatar-controls input{display:block;font-size:13px}
+
+/* actions */
+.form-actions{display:flex;justify-content:flex-end;gap:10px}
+.btn{background:linear-gradient(90deg,#7b49d9,#b08cff);color:white;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(81,36,121,0.12)}
+.btn.ghost{background:transparent;color:#6a3fb5;border:1px solid rgba(106,63,181,0.14)}
+.btn:hover{transform:translateY(-3px)}
+.done-box{text-align:center;padding:18px;color:#3a0f66}
+
+/* toolbar & grid */
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.toolbar input{padding:10px;border-radius:10px;border:1px solid #efe6fb;width:320px;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card-mini{background:linear-gradient(180deg,#fff,#fbf7ff);padding:14px;border-radius:12px;box-shadow:0 10px 30px rgba(70,30,90,0.04);display:flex;gap:12px;align-items:center}
+.card-mini .mini-avatar{width:64px;height:64px;border-radius:10px;object-fit:cover;background:linear-gradient(90deg,#8d5fd6,#c8a8ff);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:18px}
+.card-mini .mini-body{flex:1}
+.card-mini h4{margin:0;color:#3a0f66}
+.card-mini p{margin:4px 0;color:#6b537a;font-size:13px}
+.card-actions{display:flex;gap:8px;margin-left:6px}
+
+/* detail panel */
+.detail-panel{position:fixed;right:28px;top:100px;width:420px;background:linear-gradient(180deg,#fff,#fbf7ff);border-radius:12px;box-shadow:0 18px 40px rgba(70,30,90,0.16);padding:18px;z-index:60}
+.detail-panel .close{position:absolute;right:8px;top:8px;border:none;background:transparent;font-size:18px;cursor:pointer}
+.detail-card h3{margin-top:0;color:#5d2a9e}
+.detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(147,118,180,0.12)}
+.detail-row:last-child{border-bottom:none}
+.detail-avatar{width:96px;height:96px;border-radius:12px;object-fit:cover;margin-bottom:12px;border:2px solid #efe0ff}
+
+/* toast */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#2a1a3d;color:white;padding:12px 18px;border-radius:8px;box-shadow:0 8px 30px rgba(44,18,66,0.2);z-index:100}
+
+/* responsive */
+@media(max-width:980px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .container{padding:0 12px}
+}
+@media(max-width:720px){
+  .form-grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .detail-panel{position:static;margin-top:18px;width:100%}
+}
