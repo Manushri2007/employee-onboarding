@@ -4,7 +4,7 @@
 body{
   margin:0;
   font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg,#f6f3fb,#efe9fb);
+  background: #f5f4fb;
   color:#222;
 }
 
@@ -36,7 +36,8 @@ nav .btn{margin-left:8px}
 .container{max-width:1100px;margin:30px auto;padding:0 18px}
 
 /* hero */
-.hero{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#fff,#fbf7ff);padding:36px;border-radius:12px;box-shadow:0 8px 30px rgba(70,30,90,0.04)}
+.hero{background: transparent;
+  box-shadow: none;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#fff,#fbf7ff);padding:36px;border-radius:12px;box-shadow:0 8px 30px rgba(70,30,90,0.04)}
 .hero-left{max-width:72%}
 .hero h2{margin:0 0 8px;color:#3a0f66}
 .hero p{margin:0 0 14px;color:#5b4a6f}
@@ -45,7 +46,7 @@ nav .btn{margin-left:8px}
 
 /* section and card */
 .section{margin-bottom:30px}
-.card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(70,30,90,0.05)}
+.card{background: transparent;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(70,30,90,0.05)}
 .stepper{display:flex;gap:10px;margin-bottom:14px;justify-content:center}
 .step{flex:1;padding:8px;border-radius:10px;background:#f6f1fb;color:#6b4a84;border:1px solid #efe6fb;text-align:center}
 .step.active{background:linear-gradient(90deg,#6a3fb5,#9b59ff);color:white;border-color:transparent;box-shadow:0 8px 22px rgba(90,40,120,0.12)}
@@ -105,4 +106,23 @@ input:focus,select:focus,textarea:focus{box-shadow:0 10px 30px rgba(99,56,137,0.
   .form-grid{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
   .detail-panel{position:static;margin-top:18px;width:100%}
+}
+
+.hero,
+.card,
+.card-mini,
+.detail-panel {
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(33, 29, 58, 0.18);
+}
+.hero{
+  width: 100%;
+  min-height: 280px;
+  padding: 60px;
+  margin-top: 30px;
+  background: transparent; 
+}
+.container{
+  max-width: 1200px;
+  margin: 40px auto;
 }
